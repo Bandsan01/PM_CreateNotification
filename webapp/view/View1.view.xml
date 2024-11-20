@@ -1,0 +1,210 @@
+<mvc:View
+    controllerName="zcreatenotification.zcreatenotification.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+    <Page showHeader="false">
+        <content>
+            <f:SimpleForm
+                id="ID1"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="{i18n>fmTitle}"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="4"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="0"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="2"
+                singleContainerFullSize="false"
+            >
+                <f:content>
+                    <core:Title text="" />
+                    <Label text="{i18n>NotTyp}" />
+                    <ComboBox
+                        required="true"
+                        showSecondaryValues="true"
+                        change="onTypChange"
+                        valueState="{view>/valueStateNT}"
+                        valueStateText="{view>/valueStateTxtNT}"
+                    >
+                        <core:ListItem
+                            key="ZB"
+                            text="Breakdown Notification"
+                            additionalText="ZB"
+                        />
+                        <core:ListItem
+                            key="ZG"
+                            text="General Notification"
+                            additionalText="ZG"
+                        />
+                    </ComboBox>
+                    <!-- <Label text="Notification Header Text" />
+				<Input value="{view>/notHdrTxt}" /> -->
+                    <Label text="" />
+                    <Text />
+                    <Label text="{i18n>notDate}" />
+                    <DatePicker
+                        enabled="false"
+                        value="{
+        path: 'view>/dDefaultDate',
+        type: 'sap.ui.model.type.Date'
+    }"
+                        valueFormat="yyyy-MM-dd"
+                        displayFormat="long"
+                    />
+                    <core:Title text="" />
+                    <Label text="{i18n>Floc}" />
+                    <Input value="{view>/fnLoc}" />
+                    <Label />
+                    <Text text="{view>/fnlocDesc}" />
+                    <Label text="{i18n>equip}" />
+                    <Input
+                        value="{view>/equip}"
+                        change="onChange"
+                        required="true"
+                        valueState="{view>/valueStateEq}"
+                        valueStateText="{view>/valueStateTxtEq}"
+                    />
+                    <Label />
+                    <Text text="{view>/eqipDesc}" />
+                </f:content>
+            </f:SimpleForm>
+            <f:SimpleForm
+                id="ID2"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Subject"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="4"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="0"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="3"
+                columnsL="2"
+                columnsM="2"
+                singleContainerFullSize="false">
+                <f:content>
+                    <core:Title text="" />
+                    <Label text="{i18n>notHdrTxt}" />
+                    <Input
+                        value="{view>/desc}"
+                        required="true"
+                        liveChange="onChangeNotText"
+                        valueState="{view>/valueState}"
+                        valueStateText="{view>/valueStateTxt}"
+                    />
+                    <core:Title text="" />
+                    <Label text="{i18n>lgTxt}" />
+                    <TextArea
+                        value="{view>/longTxt}"
+                        width="100%"
+                    />
+                </f:content>
+            </f:SimpleForm>
+            <f:SimpleForm
+                id="ID3"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="{i18n>malData}"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="4"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="0"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="2"
+                singleContainerFullSize="false"
+            >
+                <f:content>
+                    <core:Title text="" />
+                    <Label text="{i18n>malStDat}" />
+                    <DatePicker
+                        value="{
+        path: 'view>/dDefaultDate',
+        type: 'sap.ui.model.type.Date'
+    }"
+                        valueFormat="yyyy-MM-dd"
+                        displayFormat="long"
+                    />
+                    <Label text="{i18n>malStTime}" />
+
+                    <TimePicker
+                        value="{
+				path: 'view>/dDefaultDate',
+				type: 'sap.ui.model.type.Time'}"
+                    />
+
+                    <core:Title text="" />
+                    <Label text="{i18n>prty}" />
+                    <ComboBox
+                        key="{view>/Priority}"
+                        change="onPrtChange"
+                    >
+                        <core:Item
+                            key="1"
+                            text="Machine Down"
+                        />
+                        <core:Item
+                            key="2"
+                            text="Medium"
+                        />
+                        <core:Item
+                            key="3"
+                            text="Low"
+                        />
+                        <core:Item
+                            key="4"
+                            text="Safety"
+                        />
+                        <core:Item
+                            key="5"
+                            text="High"
+                        />
+                    </ComboBox>
+                    <Label text="{i18n>reqEndDt}" />
+                    <DatePicker
+                        value="{
+        path: 'view>/reqEndDate',
+        type: 'sap.ui.model.type.Date'
+    }"
+                        placeholder="Enter Date"
+                        change="handleChange"
+                        class="sapUiSmallMarginBottom"
+                    />
+                </f:content>
+            </f:SimpleForm>
+        </content>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button
+                    type="Emphasized"
+                    text="Next"
+                    press="onCreatePress"
+                />
+                
+                <Label />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

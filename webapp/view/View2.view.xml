@@ -1,0 +1,94 @@
+<mvc:View
+	controllerName="zcreatenotification.zcreatenotification.controller.View2"
+	xmlns="sap.ui.table"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+	xmlns:m="sap.m"
+    height="100%">
+	<m:Page
+		showHeader="false"
+		enableScrolling="true"
+		class="sapUiContentPadding">
+		<m:content>
+			<Table id="ID_TBL" width="100%"
+				showNoData="true"
+				rows = "{notifData>/}"
+				selectionMode="None"
+				ariaLabelledBy="title">
+				<extension>
+					<m:OverflowToolbar style="Clear">
+						<m:Title id="title" text="Open notifications and orders for this equipment"/>
+					</m:OverflowToolbar>
+				</extension>
+				<columns>
+					<Column >
+						<m:Label text="{i18n>NotNum}" />
+						<template>
+							<m:Label text="{notifData>Qmnum}"/>
+						</template>
+					</Column>
+					<Column>
+						<m:Label text="{i18n>Order}" />
+						<template>
+							<m:Label text="{notifData>Aufnr}" />
+						</template>
+					</Column>
+					<Column>
+						<m:Label text="{i18n>NotTyp}" />
+						<template>
+							<m:Label text="{notifData>Qmart}" />
+						</template>
+					</Column>
+					<Column >
+						<m:Label text="{i18n>equip}" />
+						<template>
+							<m:Label text="{notifData>Equnr}" />
+						</template>
+					</Column>
+						<Column >
+						<m:Label text="{i18n>srtDesc}" />
+						<template>
+							<m:Label text="{notifData>Qmtxt}" />
+						</template>
+					</Column>
+					<Column >
+						<m:Label text="{i18n>crtBy}" />
+						<template>
+							<m:Label text="{notifData>Ernam}" />
+						</template>
+					</Column>				
+						<Column width="11rem">
+						<m:Label text="{i18n>CrtOn}" />
+						<template>
+								<m:Text text="{
+								path: 'notifData>Erdat'
+							}" wrapping="false" />
+						</template>
+					</Column>
+					
+				</columns>
+						<footer>
+					<m:OverflowToolbar class="sapUiMediumMarginTop">
+							<m:ToolbarSpacer/>
+							<m:Button text="Close" press="onClose" type="Emphasized"></m:Button>
+						<m:Button text="Create Notification" type="Emphasized" press="onCreateNot"></m:Button>
+						
+						<!-- <m:ToolbarSpacer/>
+						<m:Label ></m:Label> -->
+					</m:OverflowToolbar>
+				</footer>
+			</Table>
+		</m:content>
+
+		<!-- <m:footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button type="Emphasized" text="Next" press="onNextPress" />
+			</Toolbar>
+		</m:footer> -->
+
+		
+	</m:Page>
+	
+</mvc:View>
