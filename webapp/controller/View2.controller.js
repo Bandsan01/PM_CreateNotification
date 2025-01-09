@@ -78,10 +78,10 @@ sap.ui.define([
                         "SalesGrp": "",
                         "ShortText": this.objData.desc,
                         "Priority": this.objData.Priority,
-                        "Desstdate": dateFormattedReq,
-                        "Dessttime": "PT17H15M",
+                      //  "Desstdate": dateFormattedReq,
+                       // "Dessttime": "PT17H15M",
                         "Breakdown" : true,
-                        // "Desenddate" : "0000-00-00T00:00:00",
+                         "Desenddate" : dateFormattedReq,
                         "Strmlfndate": dateFormatted,
                         // "Strmlfntime" : "",
                         
