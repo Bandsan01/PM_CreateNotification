@@ -28,7 +28,9 @@ sap.ui.define([
                     valueStateNT : "None",
                     valueStateTxtNT : "",
                     valueStateEq : "None",
-                    valueStateTxtEq : ""
+                    valueStateTxtEq : "",
+                    LTvalueState : "None",
+                    valueStateLTxt : ""
 
 
 
@@ -76,7 +78,14 @@ sap.ui.define([
                 var selPrt = evt.getSource().getSelectedKey();
                 this.oModel.setProperty("/Priority", selPrt)
             },
-
+            handleLiveChange: function (oEvent) {
+                var oTextArea = oEvent.getSource();
+               var iValueLength = oTextArea.getValue().length;
+               if(iValueLength <= 132){
+                this.oModel.setProperty("/LTvalueState", "None");
+                this.oModel.setProperty("/valueStateLTxt", "");
+               }
+            },
             onCreatePress: function () {
                 if(this.oModel.getData().notTyp === ""){
                     this.oModel.setProperty("/valueStateNT", "Error");
@@ -91,6 +100,12 @@ sap.ui.define([
                 if(this.oModel.getData().desc === ""){
                     this.oModel.setProperty("/valueState", "Error");
                     this.oModel.setProperty("/valueStateTxt", "Please Enter Notification Text");
+                    return;
+                }
+                if(this.oModel.getData().longTxt.length > "132"){
+                    this.oModel.setProperty("/LTvalueState", "Error");
+                    this.oModel.setProperty("/valueStateLTxt", "Long text character limit not to exceed 132 char");
+
                     return;
                 }
                 var oRouter = this.getOwnerComponent().getRouter();

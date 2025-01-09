@@ -110,9 +110,13 @@
                     />
                     <core:Title text="" />
                     <Label text="{i18n>lgTxt}" />
-                    <TextArea
+                    <TextArea maxLength="132" 
+                    valueLiveUpdate="false" liveChange="handleLiveChange"
+                       valueState="{view>/LTvalueState}"
+                        valueStateText="{view>/valueStateLTxt}"
                         value="{view>/longTxt}"
                         width="100%"
+                        showExceededText="true" 
                     />
                 </f:content>
             </f:SimpleForm>

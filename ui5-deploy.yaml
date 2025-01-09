@@ -21,6 +21,6 @@ builder:
           name: ZUI_PM_CREATE
           description: Create Notification
           package: ZPM_FIORI
-          transport: DGWK900698
+          transport: DGWK900820
         exclude:
           - /test/
